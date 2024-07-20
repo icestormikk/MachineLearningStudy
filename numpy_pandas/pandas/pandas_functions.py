@@ -1,5 +1,7 @@
-from pandas import read_csv
+from typing import Any
+
+import numpy as np
 
 
-def pandas_test(csv_filepath: str):
-    print(read_csv(csv_filepath))
+def pandas_test(txt_filepath: str) -> Any:
+    return np.genfromtxt(txt_filepath, dtype=float, skip_header=1, delimiter=",")
