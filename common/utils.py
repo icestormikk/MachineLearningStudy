@@ -1,5 +1,5 @@
 import random
-from typing import Any
+from typing import Any, Generator
 
 import numpy as np
 
@@ -21,20 +21,17 @@ class Student:
         return f'id: {self.student_id}, name: {self.name}, age: {self.age}, email: {self.email}, average: {self.average}'
 
 
-def generate_random_student_data(students_count: int) -> ndarray[Any, dtype[Any]]:
+def generate_random_student_data(students_count: int) -> Generator[Student, Any, None] | None:
     """
     Создание случайного набора данных, представляющего из себя список студентов некоторой учебной организации
     :param students_count: Необходимое количество студентов
-    :return: Список объектов класса Student со случайно заполненными атрибутами
+    :return: Объект класса Generator, позволяющий итерироваться по списку объектов класса Student
     """
     if students_count < 0:
-        return np.array([])
+        return None
     names = ['Pavel', 'Dasha', 'Petya', 'Vanya', 'Sasha', 'Viktoria', 'Jessica', 'Oleg']
 
-    return np.fromiter(
-        (
-            Student(random.choice(names), random.randint(18, 40), f'test{i}@test.com', random.uniform(1.0, 5.0))
-            for i in range(students_count)
-        ),
-        Student
+    return (
+        Student(random.choice(names), random.randint(18, 40), f'test{i}@test.com', random.uniform(1.0, 5.0))
+        for i in range(students_count)
     )
