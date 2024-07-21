@@ -1,7 +1,6 @@
 import os
-
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
-
+import tensorflow as tf
 from keras.src.datasets import mnist
 from tensorflow import keras
 from tensorflow.keras import layers
@@ -25,3 +24,12 @@ def tensorflow_test():
     test_loss, test_acc = model.evaluate(test_images, test_labels)
     print(test_acc)
 
+
+def tensorflow_test_simple():
+    w = tf.Variable(tf.random.uniform((2, 2)))
+    b = tf.Variable(tf.zeros((2, )))
+    x = tf.Variable(tf.random.uniform((2, 2)))
+    with tf.GradientTape() as t:
+        y = tf.matmul(x, w) + b
+        grad = t.gradient(y, [w, b])
+        print(grad)

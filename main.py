@@ -1,5 +1,4 @@
-import tensorflow_funcs.tensorflow_function as tff
+from tensorflow_funcs.tensorflow_function import tensorflow_test_simple
 
 if __name__ == '__main__':
-    tff.tensorflow_test()
-
+    tensorflow_test_simple()
