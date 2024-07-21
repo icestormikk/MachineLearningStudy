@@ -1,4 +1,5 @@
-import numpy_pandas.pandas.pandas_functions as pf
+import tensorflow_funcs.tensorflow_function as tff
 
 if __name__ == '__main__':
-    pf.pandas_seaborn_test_stackoverflow()
+    tff.tensorflow_test()
+
