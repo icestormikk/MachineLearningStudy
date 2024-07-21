@@ -1,7 +1,10 @@
 import os.path
+import random
 from typing import Any
 
+import numpy as np
 import pandas as pd
+import seaborn as sb
 import matplotlib.pyplot as plt
 
 from numpy_pandas.numpy.numpy_functions import get_file_by_url
@@ -44,4 +47,13 @@ def pandas_test():
 
     # вывод на экран графика с данными
     df['new_deaths'].cumsum().plot(title='Total Deaths')
+    sb.scatterplot(x='new_cases', y='new_deaths', data=df)
+    plt.show()
+
+
+def pandas_seaborn_test():
+    data = [round(random.random() * 10, 2) for i in range(100)]
+    years = range(2000, 2100, 1)
+    sb.set_style("whitegrid")
+    plt.bar(years, data)
     plt.show()
