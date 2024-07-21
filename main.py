@@ -1,4 +1,4 @@
-from numpy_pandas.pandas.pandas_functions import pandas_seaborn_test, pandas_test
+import numpy_pandas.pandas.pandas_functions as pf
 
 if __name__ == '__main__':
-    pandas_seaborn_test()
+    pf.pandas_seaborn_test_stackoverflow()
